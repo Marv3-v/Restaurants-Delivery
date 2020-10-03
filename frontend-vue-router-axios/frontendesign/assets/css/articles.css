@@ -4,6 +4,8 @@
 /*-- LAYAOUT --*/
 .main {
     padding: 2rem 0;
+    position: relative;
+    min-height: 90vh;
 }
 .art-grid{
     display: grid;
@@ -40,6 +42,50 @@
     border-radius: 1rem;
     overflow: hidden;
 }
+
+/* lOG IN CARD */
+.card-login {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1.5rem 2rem;
+    border-radius: 1rem;
+    overflow: hidden;
+    background-color: var(--first-color);
+    color: var(--white-color);
+    width: 90%;
+}
+
+.center {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.form-class {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-class > div {
+    width: 100%;
+}
+
+/* Inputs */
+input[type=text], input[type=password], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-sizing: border-box;
+}
+
 article:nth-child(1){
     background-color: var(--white-color);
 }
@@ -127,4 +173,8 @@ article:nth-child(4){
         margin-left: auto;
         margin-right: auto;
     }
+
+    .card-login {
+        width: 25%;
+}
 }
