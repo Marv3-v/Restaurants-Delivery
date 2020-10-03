@@ -18,10 +18,17 @@
                         </div>
                     </div>
                     <div class="nav__menu">
-                        <ul class="nav__list">
-                            <li class="nav__item"><a href="#" id="restaurantes"  @click="linkAction(1)" :class="{active:selected == 1}" class="nav__link restaurantes">Restaurantes</a></li>
-                            <li class="nav__item"><a href="#" id="carrito" @click="linkAction(2)" :class="{active:selected == 2}" class="nav__link">Carrito</a></li>
-                            <li class="nav__item"><a href="#" @click="linkAction(3)" :class="{active:selected == 3}" class="nav__link">Checkout</a></li>
+                        <ul class="nav__list" @click="closeMobileMenu">
+                            <li class="nav__item"><router-link to="/restaurantes" active-class="active" id="restaurantes"   class="nav__link restaurantes">Restaurantes</router-link></li>
+                            <li class="nav__item">
+                                <router-link to="/carrito" id="carrito" active-class="active" class="nav__link">Carrito</router-link>
+                            </li>
+
+                            <li class="nav__item">
+                                <router-link to="/checkout" id="checkout" active-class="active" class="nav__link">Checkout</router-link>
+                            </li>
+
+                           
                             <li class="nav__item"><a href="#"  class="nav__social-icon"><i class='bx bx-log-out' id="log-out-icon"></i></a></li>
                         </ul>
                     </div>
@@ -39,9 +46,9 @@
 export default {
   name: 'app',
   data() {
-         return {
-             selected: undefined
-         }
+        //  return {
+        //      selected: undefined
+        //  }
     },
   methods: {
       /*SHOW MENU*/
@@ -53,13 +60,14 @@ export default {
             console.log("sdf");
             this.$refs.navMenu.classList.remove('show');
         },
-        linkAction(item) {
-            this.selected = item; 
+        closeMobileMenu() {
+            // close  
             this.$refs.navMenu.classList.remove('show')
         }
     /*===== ACTIVE AND REMOVE MENU =====*/
     // const navLink = document.querySelectorAll('.nav__link'); 
 
-}
+},
+
 }
 </script>
