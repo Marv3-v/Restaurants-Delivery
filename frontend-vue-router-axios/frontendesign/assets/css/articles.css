@@ -51,14 +51,15 @@
     align-items: center;
     padding: 1.5rem 2rem;
     border-radius: 1rem;
+    justify-content: center;
     overflow: hidden;
     background-color: var(--first-color);
     color: var(--white-color);
-    width: 90%;
+    width: 100%;
 }
 
 .center {
-  margin: 0;
+  margin-top: 25%;
   position: absolute;
   top: 50%;
   left: 50%;

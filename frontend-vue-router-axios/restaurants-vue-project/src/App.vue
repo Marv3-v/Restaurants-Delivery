@@ -32,6 +32,7 @@
                             <li class="nav__item"><a href="#"  class="nav__social-icon"><i class='bx bx-log-out' id="log-out-icon"></i></a></li>
                         </ul>
                     </div>
+                           
                     <div class="nav__social">
                         <a href="#" class="nav__social-icon"><i class='bx bx-search-alt' id="search-pc-icon"></i></a>
                         <a href="#" class="nav__social-icon"><i class='bx bx-cart-alt' id="cart-pc-icon"></i></a>
@@ -40,6 +41,7 @@
                 </div>
             </nav>
         </header>
+         <router-view></router-view>
   </div>
 </template>
 <script>
@@ -63,11 +65,8 @@ export default {
         closeMobileMenu() {
             // close  
             this.$refs.navMenu.classList.remove('show')
-        }
-    /*===== ACTIVE AND REMOVE MENU =====*/
-    // const navLink = document.querySelectorAll('.nav__link'); 
-
+        } 
 },
-
 }
 </script>
+

@@ -2,6 +2,7 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 import "./assets/css/styles.css"
+import "./assets/css/articles.css";
 import "./assets/icons/css/boxicons.min.css";
 
 Vue.config.productionTip = false
