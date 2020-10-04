@@ -86,16 +86,10 @@ input[type=text], input[type=password], select {
   box-sizing: border-box;
 }
 
-article:nth-child(1){
+article:nth-child(odd){
     background-color: var(--white-color);
 }
-article:nth-child(2){
-    background-color: var(--dark-color-alt);
-}
-article:nth-child(3){
-    background-color:  var(--white-color);
-}
-article:nth-child(4){
+article:nth-child(even){
     background-color: var(--dark-color-alt);
 }
 .card__img{
