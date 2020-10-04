@@ -23,8 +23,9 @@ app.get("/", (req, res) => {
     res.json({ message: "Bienvenido a Ruedas." });
 });
 
-// Agregar las rutas
+//
 
+// Agregar las rutas
 db.sequelize.sync();
 // Dev
 // db.sequelize.sync({ force: true }).then(() => {

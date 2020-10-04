@@ -1,6 +1,6 @@
 //Model seccionmenu Table
 module.exports = (sequelize, Sequelize) => {
-    const Seccionmenu = sequelize.define("seccionmenu", {
+    const Seccionmenus = sequelize.define("seccionmenus", {
         nombre: {
             type: Sequelize.STRING,
         },
@@ -9,5 +9,5 @@ module.exports = (sequelize, Sequelize) => {
         },
     });
 
-    return Seccionmenu;
+    return Seccionmenus;
 };

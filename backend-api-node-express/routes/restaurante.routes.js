@@ -11,4 +11,6 @@ module.exports = app => {
     router.get("/:id", restaurantes.findOne);
     // 
     app.use('/api/restaurantes', router);
+
+    //
 }

@@ -20,15 +20,15 @@ CREATE TABLE restaurantes(
 );
 
 -- Tabla del Menu
-CREATE TABLE seccionmenu(
+CREATE TABLE seccionmenus(
     id INT NOT NULL AUTO_INCREMENT,
     nombre VARCHAR(100) NOT NULL,
     imagen_path VARCHAR(250),
     createdAt TIMESTAMP,
     updatedAt TIMESTAMP,
-    restaurante_id INT, 
+    restauranteId INT, 
     PRIMARY KEY (id),
-    FOREIGN KEY (restaurante_id) REFERENCES restaurantes(id)
+    FOREIGN KEY (restauranteId) REFERENCES restaurantes(id)
     
 );
 -- CHILD
@@ -60,27 +60,27 @@ CREATE TABLE localidades(
     nombre VARCHAR(200) NOT NULL,
     calle VARCHAR(200) NOT NULL,
     descripcion VARCHAR(300) NULL,
-    cliente_id INT,
+    clienteId INT,
     createdAt TIMESTAMP,
     updatedAt TIMESTAMP,
     PRIMARY KEY (id),
-    FOREIGN KEY (cliente_id) REFERENCES clientes(id)
+    FOREIGN KEY (clienteId) REFERENCES clientes(id)
 );
 
 -- Pedidos
 CREATE TABLE pedidos(
     id INT NOT NULL AUTO_INCREMENT,
-    metodo_pago_id INT,
+    metodo_pagoId INT,
     tarifa_envio DECIMAL(9,2),
-    cliente_id INT,
+    clienteId INT,
     total DECIMAL(9,2),
-    estado_id INT,
+    estadoId INT,
     createdAt TIMESTAMP,
     updatedAt TIMESTAMP,
     PRIMARY KEY (id),
-    FOREIGN KEY (metodo_pago_id) REFERENCES metodos_pago(id),
-    FOREIGN KEY (cliente_id) REFERENCES clientes(id),
-    FOREIGN KEY (estado_id) REFERENCES estados(id)
+    FOREIGN KEY (metodo_pagoId) REFERENCES metodos_pago(id),
+    FOREIGN KEY (clienteId) REFERENCES clientes(id),
+    FOREIGN KEY (estadoId) REFERENCES estados(id)
 );
 
 -- Tabla de productos
@@ -88,27 +88,27 @@ CREATE TABLE productos(
     id INT NOT NULL AUTO_INCREMENT,
     nombre VARCHAR(200) NOT NULL,
     precio DECIMAL(9,2),
-    restaurante_id INT,
-    seccionmenu_id INT,
+    restauranteId INT,
+    seccionmenuId INT,
     imagen_path VARCHAR(250),
     createdAt TIMESTAMP,
     updatedAt TIMESTAMP, 
     PRIMARY KEY (id),
-    FOREIGN KEY (restaurante_id) REFERENCES restaurantes(id),
-    FOREIGN KEY (seccionmenu_id) REFERENCES seccionmenu(id)
+    FOREIGN KEY (restauranteId) REFERENCES restaurantes(id),
+    FOREIGN KEY (seccionmenuId) REFERENCES seccionmenus(id)
 );
 
 -- Producto Pedido
-CREATE TABLE productos_pedido(
+CREATE TABLE productos_pedidos(
     id INT NOT NULL AUTO_INCREMENT,
-    producto_id INT,
-    pedido_id INT,
+    productoId INT,
+    pedidoId INT,
     precio_unitario DECIMAL(9,2),
-    estado_id INT,
+    estadoId INT,
     createdAt TIMESTAMP,
     updatedAt TIMESTAMP,
     PRIMARY KEY (id),
-    FOREIGN KEY (producto_id) REFERENCES productos(id),
-    FOREIGN KEY (pedido_id) REFERENCES pedidos(id),
-    FOREIGN KEY (estado_id) REFERENCES estados(id)
+    FOREIGN KEY (productoId) REFERENCES productos(id),
+    FOREIGN KEY (pedidoId) REFERENCES pedidos(id),
+    FOREIGN KEY (estadoId) REFERENCES estados(id)
 );
