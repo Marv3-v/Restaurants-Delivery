@@ -1,12 +1,11 @@
 <template>
 <div>
 <h1 class='title-shop' style='margin-top: 100px; margin-bottom: -50px'>{{restaurante.nombre}}</h1>
-
-<router-link to="/restaurantes"><i class='bx bxs-chevron-left'></i></router-link>
+<h2 class="title-shop" style="font-size: 10px;"><a href="/restaurantes">restaurantes</a></h2>
 <main class="main art-grid">
     <article v-for="(seccion, index) in restaurante.seccionmenus" :key="index" class='card'>
         <router-link  :to="{ path: '/restaurantes/'+ restaurante.id + '/menu' + '/' + seccion.id}">
-        <div class='card__img'><img :src="require(`../assets/img/${restaurante.imagen_path}`)">
+        <div class='card__img'><img :src="require(`../assets/img/${seccion.imagen_path}`)">
           </div><div class='card__name'><p>{{ seccion.nombre }}</p></div><div class='card__precis'><div>
           <span class='card__preci card__preci--now'>{{ seccion.nombre }}</span></div></div>
        </router-link>

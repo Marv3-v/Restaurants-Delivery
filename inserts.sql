@@ -17,7 +17,7 @@ INSERT INTO restaurantes VALUES(null, "Taco Bell", "tacobell.png", CURDATE(), CU
 -- id, nombre, imagen,created_at, updated_at, restaurante_id
 -- POLLO CAMPERO
 INSERT INTO seccionmenus VALUES(null, "Pollo", "pollocat.png", CURDATE(), CURDATE(), 1);
-INSERT INTO seccionmenus VALUES(null, "Sandwich y Hamburgesa", "sandyhambcat.png", CURDATE(), CURDATE(), 1);
+INSERT INTO seccionmenus VALUES(null, "Hamburgesas", "sandyhambcat.png", CURDATE(), CURDATE(), 1);
 INSERT INTO seccionmenus VALUES(null, "Alitas y Camperitos", "alitasycamp.png", CURDATE(), CURDATE(), 1);
 INSERT INTO seccionmenus VALUES(null, "Desayunos", "desayunos.png", CURDATE(), CURDATE(), 1);
 
@@ -45,59 +45,55 @@ INSERT INTO seccionmenus VALUES(null, "Complementos", "complementos.png", CURDAT
 
 -- PRODUCTOS POLLO CAMPERO  // CATEGORIA POLLO
     INSERT INTO productos VALUES(null, "Combo 12 piezas", 170, 1, 1, "combo12.png", CURDATE(), CURDATE());
-    INSERT INTO productos VALUES(null, "Combo 10 piezas", 145, 1, 1, "combo10.png", CURDATE(), CURDATE());
-    INSERT INTO productos VALUES(null, "Combo 8 piezas", 129, 1, 1, "combo08.png", CURDATE(), CURDATE());
+    INSERT INTO productos VALUES(null, "Combo 10 piezas", 145, 1, 1, "combo12.png", CURDATE(), CURDATE());
+    INSERT INTO productos VALUES(null, "Combo 8 piezas", 129, 1, 1, "combo12.png", CURDATE(), CURDATE());
     INSERT INTO productos VALUES(null, "Combo 6 piezas", 103, 1, 1, "combo06.png", CURDATE(), CURDATE());
 
     -- CATEGORIA SANDWICHES Y HAMBURGESAS
-    INSERT INTO productos VALUES(null, "Hamburgesa Americana", 103, 1, 2, "americana.png", CURDATE(), CURDATE());
-
-    -- PIZZA
-    INSERT INTO productos VALUES(null, "Super personal", 40, 1, 3, "superp.png", CURDATE(), CURDATE());
-    INSERT INTO productos VALUES(null, "2 pizzas grandes", 80, 1, 3, "2pizzasgrande.png", CURDATE(), CURDATE());
-    INSERT INTO productos VALUES(null, "3 pizzas grandes", 120, 1, 3, "3pizzasgrande.png", CURDATE(), CURDATE());
-    INSERT INTO productos VALUES(null, "Pizza 4x4", 120, 1, 3, "3pizzasgrande.png", CURDATE(), CURDATE());
+    INSERT INTO productos VALUES(null, "H.Americana", 30, 1, 2, "americana.png", CURDATE(), CURDATE());
+    INSERT INTO productos VALUES(null, "S. Barbacoa", 40, 1, 2, "sbarbacoa.png", CURDATE(), CURDATE());
+    INSERT INTO productos VALUES(null, "S. Parrilla", 40, 1, 2, "sparrilla.png", CURDATE(), CURDATE());
 
 
     -- categoria Alitas y Camperitos
-    INSERT INTO productos VALUES(null, "20 camperitos", 114, 1, 4, "20camperitos.png", CURDATE(), CURDATE());
-    INSERT INTO productos VALUES(null, "30 Alitas", 144, 1, 4, "30alitas.png", CURDATE(), CURDATE());
-    INSERT INTO productos VALUES(null, "20 Alitas", 114, 1, 4, "20alitas.png", CURDATE(), CURDATE());
+    INSERT INTO productos VALUES(null, "20 camperitos", 114, 1, 3, "20camperitos.png", CURDATE(), CURDATE());
+    INSERT INTO productos VALUES(null, "30 Alitas", 144, 1, 3, "30alitas.png", CURDATE(), CURDATE());
+    INSERT INTO productos VALUES(null, "20 Alitas", 114, 1, 3, "30alitas.png", CURDATE(), CURDATE());
 
     -- Desayunos
-    INSERT INTO productos VALUES(null, "Super típico", 40, 1, 5, "tipico.png", CURDATE(), CURDATE());
-    INSERT INTO productos VALUES(null, "Omelet Supremo", 40, 1, 5, "omelete.png", CURDATE(), CURDATE());
-    INSERT INTO productos VALUES(null, "3 panqueques", 30, 1, 5, "panqueques.png", CURDATE(), CURDATE());
+    INSERT INTO productos VALUES(null, "Super típico", 40, 1, 4, "tipico.png", CURDATE(), CURDATE());
+    INSERT INTO productos VALUES(null, "Omelet Supremo", 40, 1, 4, "omelete.png", CURDATE(), CURDATE());
+    INSERT INTO productos VALUES(null, "3 panqueques", 30, 1, 4, "panqueques.png", CURDATE(), CURDATE());
 
 
 -- POLLO EXPRESS
     -- POLLO
-    INSERT INTO productos VALUES(null, "Pechuga", 12, 2, 6, "pechuga.png", CURDATE(), CURDATE());
-    INSERT INTO productos VALUES(null, "Ala", 5, 2, 6, "ala.png", CURDATE(), CURDATE());
-    INSERT INTO productos VALUES(null, "Pierna", 5, 2, 6, "pierna.png", CURDATE(), CURDATE());
-    INSERT INTO productos VALUES(null, "papas", 5, 2, 6, "papas.png", CURDATE(), CURDATE());
+    INSERT INTO productos VALUES(null, "Pechuga", 12, 2, 5, "pechuga.png", CURDATE(), CURDATE());
+    INSERT INTO productos VALUES(null, "Ala", 5, 2, 5, "ala.png", CURDATE(), CURDATE());
+    INSERT INTO productos VALUES(null, "Pierna", 5, 2, 5, "pierna.png", CURDATE(), CURDATE());
+    INSERT INTO productos VALUES(null, "papas", 5, 2, 5, "papas.png", CURDATE(), CURDATE());
 
 -- DOMINOS
 --PRODUCTOS PIZZA
-    INSERT INTO productos VALUES(null, "Esp. 5 Carnes", 120, 3, 7, "5carnes.png", CURDATE(), CURDATE());
-    INSERT INTO productos VALUES(null, "Hawaiana", 120, 3, 7, "hawaiana.png", CURDATE(), CURDATE());
-    INSERT INTO productos VALUES(null, "Americana", 120, 3, 7, "americana.png", CURDATE(), CURDATE());
+    INSERT INTO productos VALUES(null, "Esp.5 Carnes", 120, 3, 6, "5carnes.png", CURDATE(), CURDATE());
+    INSERT INTO productos VALUES(null, "Hawaiana", 120, 3, 6, "hawaiana.png", CURDATE(), CURDATE());
+    INSERT INTO productos VALUES(null, "P.Americana", 120, 3, 6, "pamericana.png", CURDATE(), CURDATE());
 
 -- CALZONE
-    INSERT INTO productos VALUES(null, "Deluxe", 60, 3, 8, "deluxe.png", CURDATE(), CURDATE());
-    INSERT INTO productos VALUES(null, "Tropical", 60, 3, 8, "tropical.png", CURDATE(), CURDATE());
-    INSERT INTO productos VALUES(null, "Di Carne", 60, 3, 8, "dicarne.png", CURDATE(), CURDATE());
-    INSERT INTO productos VALUES(null, "Churrasco", 60, 3, 8, "churrasco.png", CURDATE(), CURDATE());
+    INSERT INTO productos VALUES(null, "Deluxe", 60, 3, 7, "deluxe.png", CURDATE(), CURDATE());
+    INSERT INTO productos VALUES(null, "Tropical", 60, 3, 7, "tropical.png", CURDATE(), CURDATE());
+    INSERT INTO productos VALUES(null, "Di Carne", 60, 3, 7, "dicarne.png", CURDATE(), CURDATE());
+    INSERT INTO productos VALUES(null, "Churrasco", 60, 3, 7, "churrasco.png", CURDATE(), CURDATE());
 
 -- Bebidas
-    INSERT INTO productos VALUES(null, "Coca Cola", 10, 3, 9, "cocacola.png", CURDATE(), CURDATE());
-    INSERT INTO productos VALUES(null, "Sprite", 10, 3, 9, "sprite.png", CURDATE(), CURDATE());
-    INSERT INTO productos VALUES(null, "Agua", 5, 3, 9, "agua.png", CURDATE(), CURDATE());
+    INSERT INTO productos VALUES(null, "Coca Cola", 10, 3, 8, "cocacola.png", CURDATE(), CURDATE());
+    INSERT INTO productos VALUES(null, "Sprite", 10, 3, 8, "sprite.png", CURDATE(), CURDATE());
+    INSERT INTO productos VALUES(null, "Agua", 5, 3, 8, "agua.png", CURDATE(), CURDATE());
 
 -- Sides
-    INSERT INTO productos VALUES(null, "Bucket", 50, 3, 10, "bucket.png", CURDATE(), CURDATE());
-    INSERT INTO productos VALUES(null, "Ribs", 50, 3, 10, "ribs.png", CURDATE(), CURDATE());
-    INSERT INTO productos VALUES(null, "Hot Wings", 50, 3, 10, "hotwings.png", CURDATE(), CURDATE());
-    INSERT INTO productos VALUES(null, "Chessy Bread", 50, 3, 10, "chessy.png", CURDATE(), CURDATE());
+    INSERT INTO productos VALUES(null, "Bucket", 50, 3, 9, "bucket.png", CURDATE(), CURDATE());
+    INSERT INTO productos VALUES(null, "Ribs", 50, 3, 9, "ribs.png", CURDATE(), CURDATE());
+    INSERT INTO productos VALUES(null, "Hot Wings", 50, 3, 9, "hotwings.png", CURDATE(), CURDATE());
+    INSERT INTO productos VALUES(null, "Chessy Bread", 50, 3, 9, "chessy.png", CURDATE(), CURDATE());
 
 
