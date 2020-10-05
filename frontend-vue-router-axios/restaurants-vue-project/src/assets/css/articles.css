@@ -86,6 +86,7 @@ input[type=text], input[type=password], select {
   box-sizing: border-box;
 }
 
+
 article:nth-child(odd){
     background-color: var(--white-color);
 }
@@ -142,6 +143,7 @@ article:nth-child(even){
 /*Move left*/
 .card:hover{
     box-shadow: 0 .5rem 1rem #D1D9E6;
+    cursor: pointer;
 }
 .card:hover .card__name{
     left: 0;

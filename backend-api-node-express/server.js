@@ -6,7 +6,7 @@ const cors = require('cors');
 const app = express();
 
 var corsOptions = {
-    origin: "http://localhost:8081"
+    origin: "http://localhost:8082"
 };
 
 app.use(cors(corsOptions));
@@ -33,6 +33,7 @@ db.sequelize.sync();
 // });
 
 require("./routes/restaurante.routes")(app); 
+require("./routes/seccionmenu.routes")(app); 
 // Puerto
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {

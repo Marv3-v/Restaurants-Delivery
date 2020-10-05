@@ -8,7 +8,7 @@ module.exports = app => {
     // Obtener los restaurantes
     router.get("/", restaurantes.findAll);
     //Solo uno
-    router.get("/:id", restaurantes.findOne);
+    router.get("/:id/menu", restaurantes.findOne);
     // 
     app.use('/api/restaurantes', router);
 
