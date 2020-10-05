@@ -16,8 +16,8 @@ INSERT INTO restaurantes VALUES(null, "Taco Bell", "tacobell.png", CURDATE(), CU
 -- == SECCION MENU ==
 -- id, nombre, imagen,created_at, updated_at, restaurante_id
 -- POLLO CAMPERO
-INSERT INTO seccionmenus VALUES(null, "pollo", "pollocat.png", CURDATE(), CURDATE(), 1);
-INSERT INTO seccionmenus VALUES(null, "sandwiches y Hamburgesas", "sandyhambcat.png", CURDATE(), CURDATE(), 1);
+INSERT INTO seccionmenus VALUES(null, "Pollo", "pollocat.png", CURDATE(), CURDATE(), 1);
+INSERT INTO seccionmenus VALUES(null, "Sandwich y Hamburgesa", "sandyhambcat.png", CURDATE(), CURDATE(), 1);
 INSERT INTO seccionmenus VALUES(null, "Alitas y Camperitos", "alitasycamp.png", CURDATE(), CURDATE(), 1);
 INSERT INTO seccionmenus VALUES(null, "Desayunos", "desayunos.png", CURDATE(), CURDATE(), 1);
 
