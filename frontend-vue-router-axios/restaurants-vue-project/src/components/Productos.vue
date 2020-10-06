@@ -1,11 +1,9 @@
 <template>
 <div>
 <h1 class='title-shop' style='margin-top: 100px; margin-bottom: -50px'>{{ productos.nombre }}</h1>
-<h2 class="title-shop" style="font-size: 10px;"><a href="/restaurantes">Volver</a></h2>
-
+<h2 class="title-shop" style="font-size: 10px;"><span style="cursor: pointer" @click="goTo('restaurante')">Volver</span></h2>
   <main class="main art-grid">
     <article style="cursor: default" v-for="(producto, index) in productos.productos" :key="index" class='card'>
-      <!-- <router-link  :to="{ path: '/restaurantes/'+ restaurante.id + '/menu'}"> -->
       <div class='card__img' ><img :src="require(`../assets/img/${producto.imagen_path}`)">
         </div><div class='card__name'>
           <p>{{ producto.nombre }}</p>
@@ -18,8 +16,7 @@
                     
             <span style="cursor:pointer" class="card__icon" @click="addCart(producto)"><i class='bx bx-cart-alt' style="color: #5D576B;"></i></span>
         </div>
-      <!-- </router-link> -->
-    </article>
+      </article>
   </main>
 </div>
 </template>
@@ -33,7 +30,7 @@ export default {
       productos: [],
       currentIndex: -1,
       prod: null,
-      currentProd: null,
+      currentProd: {},
       number: null,
     };
   },
@@ -59,19 +56,34 @@ export default {
       this.getProductos();
       this.currentIndex = -1;
     },
-    addCart() {
-     
+    addCart(producto) {
+      this.currentProd = { id: producto.id, nombre: producto.nombre, precio: producto.precio, image: producto.imagen_path};
+      // console.log(this.currentProd);
+      //Llamamos a la mutacion que incrementara el dato del carrito
+      this.$store.dispatch("addToCart", this.currentProd);
+    },
+    removeCart() {
+
     },
     updateTotal() {
-
+0
     },
     updateProducto() {
       // Aqui sumare/Restaré cantidades. O eliminaré el objeto.
+    },
+    goTo(page) {
+      page === 'restaurante' ? this.$router.push("/restaurantes/" + this.getRestaurantID() + "/menu") : this.$router.push("/carrito");
     }
 
   },
   mounted() {
     this.getProductos();
-  }
+  },
+  computed: {
+    getCartNumber() {
+        return this.$store.getters.getCount;
+    },
+    
+}
 };
 </script>

@@ -1,7 +1,7 @@
 <template>
 <div>
 <h1 class='title-shop' style='margin-top: 100px; margin-bottom: -50px'>{{restaurante.nombre}}</h1>
-<h2 class="title-shop" style="font-size: 10px;"><a href="/restaurantes">restaurantes</a></h2>
+<h2 class="title-shop" style="font-size: 10px;"><span style="cursor: pointer" @click="goTo('restau')">restaurantes</span></h2>
 <main class="main art-grid">
     <article v-for="(seccion, index) in restaurante.seccionmenus" :key="index" class='card'>
         <router-link  :to="{ path: '/restaurantes/'+ restaurante.id + '/menu' + '/' + seccion.id}">
@@ -38,6 +38,9 @@ export default {
           console.log(e);
         });
     },
+    goTo(page) {
+      page === 'restau' ? this.$router.push("/restaurantes") : this.$router.push("/carrito");
+    }
 
   }, 
   mounted() {

@@ -33,7 +33,7 @@
 }
 
 /*-- COMPONENT --*/
-.card{
+.card {
     position: relative;
     display: flex;
     flex-direction: column;
@@ -44,17 +44,27 @@
 }
 
 /* lOG IN CARD */
-.card-login {
+.cardCart {
     position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 1.5rem 2rem;
+    padding: 1.5rem 1.5rem;
     border-radius: 1rem;
     overflow: hidden;
     background-color: var(--first-color);
     color: var(--white-color);
-    width: 90%;
+}
+
+/* CONTENEDOR FLEX CARRITO */
+.contenedorFlex {
+    display: flex;
+    justify-content: left;
+    flex-wrap: wrap;
+}
+
+.contenedorFlex > article {
+    margin: .5rem;
 }
 
 .center {
@@ -86,10 +96,49 @@ input[type=text], input[type=password], select {
   box-sizing: border-box;
 }
 
+/* Cantidad a pedir */
+.cant__content {
+  width: 100px;
+  height: 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: var(--first-color);
+  color: var(--white-color);
+  padding: .5rem;
+  border-radius: .25rem;
+}
+
+/* BOTON comprar */
+.comprar {
+    background-color: var(--dark-color);
+    padding: .5rem;
+    color: var(--white-color);
+    border-radius: .25rem;
+    font-size: 12px;
+
+}
+
+.comprar:hover{
+    color: var(--first-color);
+    cursor: pointer;
+}
+
 
 article:nth-child(odd){
     background-color: var(--white-color);
 }
+
+.cardCart {
+    color: var(--first-color);
+}
+
 article:nth-child(even){
     background-color: var(--dark-color-alt);
 }
@@ -118,7 +167,7 @@ article:nth-child(even){
     color: var(--dark-color);
 }
 .card__icon:hover{
-    color: var(--accent-color);
+    color: white;
 }
 .card__precis{
     width: 100%;
@@ -141,7 +190,7 @@ article:nth-child(even){
     font-weight: bold;
 }
 /*Move left*/
-.card:hover{
+.card:hover, .cardCart:hover {
     box-shadow: 0 .5rem 1rem #D1D9E6;
     cursor: pointer;
 }
@@ -157,6 +206,17 @@ article:nth-child(even){
     padding: 0 1.5rem;
 }
 
+/* PRUEBA */
+/* .newFlex {
+    display: flex;
+    flex-direction: row;
+}
+
+.newFlex > div {
+    width: 50%;
+    margin: 1%;
+} */
+
 /*-- MEDIA QUERIES --*/
 @media screen and (min-width: 1200px){
     /* body{
@@ -169,8 +229,5 @@ article:nth-child(even){
         margin-left: auto;
         margin-right: auto;
     }
-
-    .card-login {
-        width: 25%;
-}
+  
 }

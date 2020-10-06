@@ -3,7 +3,7 @@
     <header class="header">
             <a href="#" class="header__logo">RUEDAS</a>
             <a href="#" class="nav__social-icon"><i class='bx bx-search-alt' id="search-icon"></i></a>
-            <span class="nav__social-icon"><i class='bx bx-cart-alt' id="cart-icon" ></i><span class='badge badge-warning shoping-span' ref="shopingSpan">10</span>
+            <span class="nav__social-icon"><i class='bx bx-cart-alt' id="cart-icon" ></i><span class='badge badge-warning shoping-span' ref="shopingSpan">{{ count }}</span>
             </span>
             
             <i class='bx bx-menu header__toggle menu-icon' @click="showMenu" id="nav-toggle"
@@ -37,7 +37,7 @@
                            
                     <div class="nav__social">
                         <a href="#" class="nav__social-icon"><i class='bx bx-search-alt' id="search-pc-icon"></i></a>
-                        <span class="nav__social-icon"><i class='bx bx-cart-alt' @click="getData" id="cart-pc-icon"></i><span class='badge badge-warning shoping-pc-span' id='lblCartCount' ref="lblCartCount">{{ number }}</span></span>
+                        <span class="nav__social-icon"><i class='bx bx-cart-alt' @click="getData" id="cart-pc-icon"></i><span class='badge badge-warning shoping-pc-span' id='lblCartCount' ref="lblCartCount">{{ count }}</span></span>
                         
                         <a href="#" class="nav__social-icon"><i class='bx bx-log-out' id="log-out-pc-icon"></i></a>
                     </div>
@@ -73,8 +73,24 @@ export default {
         getData() {
         console.log("Funciona: " + localStorage.getItem("prueba"));
 
-        }
+        },
+        getLoca() {
+         console.log(localStorage.getItem("Carrito"));
+
+    }
 },
+mounted() {
+    this.getLoca();
+},
+computed: {
+    getCartNumber() {
+        return this.$store.getters.getCount;
+    },
+    count() {
+      return this.$store.state.count;
+    },
+    
+}
 }
 </script>
 

@@ -123,8 +123,8 @@ img {
   background-color: var(--first-color);
 }
 #lblCartCount, .shoping-span {
-    font-size: 7px;
-    background: var(--second-color);
+    font-size: 10px;
+    background: red;
     color: #fff;
     padding: 0 5px;
     vertical-align: top;
