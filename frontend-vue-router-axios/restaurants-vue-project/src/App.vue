@@ -3,8 +3,8 @@
     <header class="header">
             <a href="#" class="header__logo">RUEDAS</a>
             <a href="#" class="nav__social-icon"><i class='bx bx-search-alt' id="search-icon"></i></a>
-            <a href="#" class="nav__social-icon"><i class='bx bx-cart-alt' id="cart-icon"></i><span class='badge badge-warning shoping-span'></span>
-            </a>
+            <span class="nav__social-icon"><i class='bx bx-cart-alt' id="cart-icon" ></i><span class='badge badge-warning shoping-span' ref="shopingSpan">10</span>
+            </span>
             
             <i class='bx bx-menu header__toggle menu-icon' @click="showMenu" id="nav-toggle"
                 style='color:#e2d8d8;font-size: 18px;'></i>
@@ -37,7 +37,7 @@
                            
                     <div class="nav__social">
                         <a href="#" class="nav__social-icon"><i class='bx bx-search-alt' id="search-pc-icon"></i></a>
-                        <a href="#" class="nav__social-icon"><i class='bx bx-cart-alt' id="cart-pc-icon"></i><span class='badge badge-warning shoping-pc-span' id='lblCartCount'></span></a>
+                        <span class="nav__social-icon"><i class='bx bx-cart-alt' @click="getData" id="cart-pc-icon"></i><span class='badge badge-warning shoping-pc-span' id='lblCartCount' ref="lblCartCount">{{ number }}</span></span>
                         
                         <a href="#" class="nav__social-icon"><i class='bx bx-log-out' id="log-out-pc-icon"></i></a>
                     </div>
@@ -51,9 +51,10 @@
 export default {
   name: 'app',
   data() {
-        //  return {
-        //      selected: undefined
-        //  }
+      return {
+          number: 0,
+          //      selected: undefined
+         }
     },
   methods: {
       /*SHOW MENU*/
@@ -68,7 +69,11 @@ export default {
         closeMobileMenu() {
             // close  
             this.$refs.navMenu.classList.remove('show')
-        } 
+        },
+        getData() {
+        console.log("Funciona: " + localStorage.getItem("prueba"));
+
+        }
 },
 }
 </script>
