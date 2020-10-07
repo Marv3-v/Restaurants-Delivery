@@ -6,6 +6,7 @@ import ProductosComp from "./components/Productos";
 import CarritoComp from "./components/Carrito";
 import CheckoutComp from "./components/Checkout";
 import LoginComp from "./components/Login";
+import SignupComp from "./components/Signup";
 Vue.use(Router);
 
 export default new Router({
@@ -16,6 +17,12 @@ export default new Router({
       alias: "/login",
       name: "login",
       component: LoginComp,
+    },
+    {
+      path: "/signup",
+      alias: "/signup",
+      name: "signup",
+      component: SignupComp
     },
     {
       path: "/restaurantes",

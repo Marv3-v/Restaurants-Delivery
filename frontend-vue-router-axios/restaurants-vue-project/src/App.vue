@@ -81,7 +81,7 @@ export default {
 
         },
         checkUrl() {
-           if(window.location.pathname.split('/')[1] === undefined || window.location.pathname.split('/')[1] == "") {
+           if(window.location.pathname.split('/')[1] === undefined || window.location.pathname.split('/')[1] == "" || window.location.pathname.split('/')[1] === "signup") {
                this.estado = false;
            } else {
                this.estado = true;
