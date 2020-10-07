@@ -28,7 +28,7 @@
                               <span class="card__preci card__preci--before">Total</span>
                               <span class="card__preci card__preci--now" style="color:  #F7567C">Carrito Vacio</span>
                           </div>
-            <div class="comprar" @click="goTo">
+            <div class="comprar" @click="goTo('resta')">
            <span>Restaurantes</span>
             </div>
             </div>     
@@ -42,7 +42,7 @@
                               <span class="card__preci card__preci--before">Total</span>
                               <span class="card__preci card__preci--now" style="color:  #F7567C">Q.{{ total.toFixed(2) }}</span>
                           </div>
-            <div class="comprar">
+            <div class="comprar" @click="goTo('check')">
            <span>Comprar</span>
             </div>
             </div>     
@@ -82,8 +82,12 @@ export default {
     this.$store.dispatch("deleteCompletely", this.currentItem);
     this.getTotal();
   },
-  goTo() {
-    this.$router.push("/restaurantes");
+  goTo(dato) {
+    if(dato == "resta") {
+      this.$router.push("/restaurantes");
+    } else {
+      this.$router.push("/checkout");
+    }
   },
   getTotal() {
     let localT = 0;

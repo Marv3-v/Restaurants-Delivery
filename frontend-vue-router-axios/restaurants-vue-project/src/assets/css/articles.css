@@ -44,7 +44,7 @@
 }
 
 /* lOG IN CARD */
-.cardCart {
+.cardCart, .card-login {
     position: relative;
     display: flex;
     flex-direction: column;
@@ -56,6 +56,7 @@
     color: var(--white-color);
     width: 100%;
 }
+
 
 .cardTotal {
     position: relative;
@@ -68,7 +69,7 @@
     background-color: var(--first-color);
     color: var(--white-color);
     width: 100%;
-    
+
 }
 
 /* CONTENEDOR FLEX CARRITO */
@@ -81,6 +82,8 @@
 .contenedorFlex > article {
     margin: .5rem;
 }
+
+
 
 .center {
   margin: 0;
@@ -101,7 +104,7 @@
 }
 
 /* Inputs */
-input[type=text], input[type=password], select {
+input[type=text], input[type=password], button, select {
   width: 100%;
   padding: 12px 20px;
   margin: 8px 0;
@@ -246,6 +249,10 @@ article:nth-child(even){
     }
     .cardCart {
         width: 45%;
+    }
+
+    .card-login {
+        width: 30%;
     }
   
 }
