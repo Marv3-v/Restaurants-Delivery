@@ -28,7 +28,6 @@ export default {
   data() {
     return {
       productos: [],
-      currentIndex: -1,
       prod: null,
       currentProd: {},
       number: null,
@@ -52,10 +51,6 @@ export default {
         });
     },
 
-    refreshList() {
-      this.getProductos();
-      this.currentIndex = -1;
-    },
     addCart(producto) {
       this.currentProd = { id: producto.id, nombre: producto.nombre, precio: producto.precio, image: producto.imagen_path};
       // console.log(this.currentProd);
@@ -66,7 +61,7 @@ export default {
 
     },
     updateTotal() {
-0
+
     },
     updateProducto() {
       // Aqui sumare/Restaré cantidades. O eliminaré el objeto.

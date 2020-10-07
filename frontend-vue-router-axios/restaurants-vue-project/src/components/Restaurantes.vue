@@ -25,8 +25,8 @@ export default {
   data() {
     return {
       restaurantes: [],
+      nombre: "",
       currentIndex: -1,
-      nombre: ""
     };
   },
   methods: {
@@ -41,10 +41,7 @@ export default {
         });
     },
 
-    refreshList() {
-      this.getRestaurantes();
-      this.currentIndex = -1;
-    },
+
   },
   mounted() {
     this.getRestaurantes();

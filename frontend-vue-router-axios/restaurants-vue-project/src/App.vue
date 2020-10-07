@@ -89,6 +89,10 @@ computed: {
     count() {
       return this.$store.state.count;
     },
+    getCartProducts() {
+        return this.$store.getters.getCartProducts;
+    }
+
     
 }
 }
