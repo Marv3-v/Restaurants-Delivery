@@ -40,7 +40,7 @@
               <span style="font-size: 10px">+Envío Q.8.00</span>
                           <div>
                               <span class="card__preci card__preci--before">Total</span>
-                              <span class="card__preci card__preci--now" style="color:  #F7567C">Q.{{ total }}</span>
+                              <span class="card__preci card__preci--now" style="color:  #F7567C">Q.{{ total.toFixed(2) }}</span>
                           </div>
             <div class="comprar">
            <span>Comprar</span>
@@ -91,8 +91,8 @@ export default {
         localT += parseFloat(el["cantidad"]) * parseFloat(el["precio"]);
       }
       );
-      this.total = localT;
-      console.log(this.total);
+      this.total = parseFloat(8) +localT;
+      // console.log(this.total);
   }
  }, 
  mounted() {
