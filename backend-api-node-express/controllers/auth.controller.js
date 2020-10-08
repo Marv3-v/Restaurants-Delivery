@@ -17,9 +17,18 @@ exports.signup = (req, res) => {
         nit: req.body.nit,
         telefono: req.body.telefono,
         contrasenia: bcrypt.hashSync(req.body.password, 8)
-    }).then(() => {
-            res.send({message: "Usuario registrado correctamente"})
-        }).catch(err => {
+    }).then(user => {
+      // user role = 1
+      Localidades.create({
+        nombre: req.body.localidad,
+        calle: req.body.calle,
+        descripcion: req.body.descripcion,
+        clienteId: user.id
+      }).then(() => {
+        res.send({ message: "Usuario registrado correctamente!" });
+      });
+
+    }).catch(err => {
             res.status(500).send({
                 message: 
                 err.message || "Hubo un error"

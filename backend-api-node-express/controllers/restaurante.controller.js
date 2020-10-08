@@ -1,4 +1,3 @@
-const { restaurantes } = require('../models/index');
 // const db = require("../models");
 const db = require('../models/index');
 const Restaurante = db.restaurantes;

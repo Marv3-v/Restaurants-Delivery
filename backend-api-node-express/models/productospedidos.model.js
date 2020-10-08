@@ -4,6 +4,12 @@ module.exports = (sequelize, Sequelize) => {
         precio_unitario: {
             type: Sequelize.DECIMAL(9,2),
         },
+        cantidad: {
+            type: Sequelize.DECIMAL(9,2),
+        },
+        subtotal: {
+            type: Sequelize.DECIMAL(9,2)
+        }
     });
 
     return Productospedido;
