@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <header class="header">
+    <header v-if="this.$store.state.auth.status.loggedIn == true" class="header">
             <a href="#" class="header__logo">RUEDAS</a>
             <a href="#" class="nav__social-icon"><i class='bx bx-search-alt' id="search-icon"></i></a>
             <span  class="nav__social-icon"><i class='bx bx-cart-alt' id="cart-icon" ></i><span class='badge badge-warning shoping-span' ref="shopingSpan">{{ count }}</span>
@@ -82,6 +82,7 @@ export default {
         },
         logout() {
             this.$store.dispatch('auth/logout');
+            this.$store.state.count = 0;
             this.$router.push("/");
         }
 

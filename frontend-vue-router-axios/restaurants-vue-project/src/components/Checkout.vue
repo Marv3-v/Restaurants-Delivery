@@ -30,11 +30,32 @@
           </article>
         </div>
         <div v-else class="checkout">
-            <article style="cursor: default; background:  #E6E7E9; color: #5D576B" class='cardTotal'>
-                CLIENTE:
-                <p>Cesar Lopez</p>
-          </article>
-         
+            <div class="cardCheckout">
+                <div class="">
+                  <p style="font-size: 13px; opacity: .5">CLIENTE:</p>
+                  <p style="font-size: 12px">{{ currentUser.usuario }}</p>
+                  <hr class="hreClass">
+                </div>
+                  <p style="font-size: 13px;  opacity: .5">DIRECCIÓN DE ENVÍO:</p>
+                <div style="font-size: 12px">
+                  <p>Ricardo</p>
+                  <p>Barrio La Ceiba</p>
+                  <p>Calle Principal</p>
+                </div>
+                  <hr class="hreClass">
+                <p style="font-size: 13px; opacity: .5">MÉTODO DE PAGO ÚNICO:</p>
+                <div style="font-size: 12px">
+                  <p>Pago Contra Entrega</p>
+                </div>
+                  <hr class="hreClass">
+                <p style="font-size: 13px;  opacity: .5">RESUMEN:</p>
+                <div style="font-size: 12px">
+                  <p>Subtotal: Q.{{ subtotal.toFixed(2) }} </p>
+                  <p>Envio: Q.8.00</p>
+                  <p>Total: Q.{{ total.toFixed(2) }}</p>
+                </div>
+          <span class="comprar" style="text-align: center">COMPRAR</span>
+          </div>
         </div>
         
   </main>
@@ -42,11 +63,13 @@
 </template>
 <script>
 export default {
+name: 'Checkout',
  data() {
    return {
      carrito: [],
      currentItem: null,
-     total: null
+     total: null,
+     subtotal: null,
    }
  },
  methods: {
@@ -81,12 +104,24 @@ export default {
       );
       this.total = parseFloat(8) +localT;
       // console.log(this.total);
+  },
+  getSubtotal() {
+    this.subtotal = this.total - 8;
   }
  }, 
  mounted() {
    this.getCart();
    this.getTotal();
+   this.getSubtotal();
+   if (!this.currentUser) {
+      this.$router.push('/login');
+   }
  },
+ computed: {
+    currentUser() {
+      return this.$store.state.auth.user;
+    }
+  },
   
  
 }

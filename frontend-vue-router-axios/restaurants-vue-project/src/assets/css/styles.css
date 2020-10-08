@@ -318,6 +318,10 @@ img {
     color: var(--white-color);
   }
 
+.hreClass {
+  border-top: .1px; opacity: .2;
+}
+
   /* None display icons while this resolution PC */
 #search-icon, #cart-icon, .shoping-span, .svg-mobile,  #log-out-icon, #menu-icon, #nav-close, #nav-toggle{
     display: none;
@@ -335,6 +339,14 @@ body {
 }
 
 }
+.cardCheckout {
+  cursor: default; 
+  color: #5D576B; 
+  padding: 5%;
+  border-radius: 20px;
+  box-shadow: 0 .5rem 1rem #D1D9E6;
+}
+
 
 /* svg background */
 body {
