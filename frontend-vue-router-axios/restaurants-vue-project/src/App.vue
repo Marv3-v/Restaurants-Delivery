@@ -1,10 +1,9 @@
 <template>
   <div id="app">
-    <header v-if="estado == true" class="header">
-            <a href="#" class="nav__social-icon"><i class='bx bx-search-alt' id="search-icon"></i></a>
+    <header class="header">
             <a href="#" class="header__logo">RUEDAS</a>
             <a href="#" class="nav__social-icon"><i class='bx bx-search-alt' id="search-icon"></i></a>
-            <span v-if="estado == true" class="nav__social-icon"><i class='bx bx-cart-alt' id="cart-icon" ></i><span class='badge badge-warning shoping-span' ref="shopingSpan">{{ count }}</span>
+            <span  class="nav__social-icon"><i class='bx bx-cart-alt' id="cart-icon" ></i><span class='badge badge-warning shoping-span' ref="shopingSpan">{{ count }}</span>
             </span>
             
             <i class='bx bx-menu header__toggle menu-icon' @click="showMenu" id="nav-toggle"
@@ -49,12 +48,13 @@
   </div>
 </template>
 <script>
+import ClienteService from './services/cliente-service';
+
 export default {
   name: 'app',
   data() {
       return {
           number: 0,
-          estado: false,
           //      selected: undefined
          }
     },
@@ -80,22 +80,25 @@ export default {
          console.log(localStorage.getItem("Carrito"));
 
         },
-        checkUrl() {
-           if(window.location.pathname.split('/')[1] === undefined || window.location.pathname.split('/')[1] == "" || window.location.pathname.split('/')[1] === "signup") {
-               this.estado = false;
-           } else {
-               this.estado = true;
-           }
-        },
         logout() {
+            this.$store.dispatch('auth/logout');
             this.$router.push("/");
-            this.checkUrl();
         }
 
 },
 mounted() {
     this.getLoca();
-    this.checkUrl();
+    ClienteService.getClienteBoard().then(
+        response => {
+        this.content = response.data;
+      },
+      error => {
+        this.content =
+          (error.response && error.response.data) ||
+          error.message ||
+          error.toString();
+      }
+    );
 },
 computed: {
     getCartNumber() {
@@ -107,12 +110,8 @@ computed: {
     getCartProducts() {
         return this.$store.getters.getCartProducts;
     },
-    check() {
-        return this.checkUrl();
-    }
 
     
 }
 }
 </script>
-

@@ -40,8 +40,8 @@
                                 <input type='text' name='adicional' placeholder="Detalles del lugar" id='adicional'>
                             </div>
                             <div style="display: flex; justify-content: space-around">
-                                <span style="cursor: pointer" @click="back">Volver</span>
-                                <span style="cursor: pointer">Crear</span>
+                                <button style="cursor: pointer" @click="back">Volver</button>
+                                <button style="cursor: pointer">Crear</button>
                             </div>
                        </form>
                    </div>

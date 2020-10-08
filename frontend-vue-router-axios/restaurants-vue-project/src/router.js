@@ -9,7 +9,7 @@ import LoginComp from "./components/Login";
 import SignupComp from "./components/Signup";
 Vue.use(Router);
 
-export default new Router({
+export const router = new Router({
   mode: "history",
   routes: [
     {
@@ -50,7 +50,23 @@ export default new Router({
       name: "/checkout",
       component: CheckoutComp,
 
-    }
-    
-  ],
+    }],
+}
+);
+router.beforeEach((to, from, next) => {
+  const publicPages = ["/", "/signup"];
+  const authRequired = !publicPages.includes(to.path);
+  const loggedIn = localStorage.getItem("user");
+
+  // trying to access a restricted page + not logged in
+  // redirect to login page
+  if (authRequired && !loggedIn) {
+    next("/login");
+  } else {
+    next();
+  }
 });
+
+
+
+

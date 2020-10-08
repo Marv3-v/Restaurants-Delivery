@@ -112,7 +112,7 @@
 }
 
 /* Inputs */
-input[type=text], input[type=password], button, select {
+input[type=text], input[type=password], button,  select {
   width: 100%;
   padding: 12px 20px;
   margin: 8px 0;
@@ -121,6 +121,14 @@ input[type=text], input[type=password], button, select {
   border-radius: 8px;
   box-sizing: border-box;
 }
+
+button {
+    width: 40%;
+    border: 0;
+    color: var(--white-color);
+    background-color: var(--dark-color);
+}
+
 
 /* Cantidad a pedir */
 .cant__content {

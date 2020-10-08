@@ -34,7 +34,7 @@ exports.signin = (req, res) => {
     },
   }).then((cliente) => {
       if (!cliente) {
-        return res.status(404).send({ message: "User Not found." });
+        return res.status(404).send("Usuario no encontrado.");
       }
 
       var passwordIsValid = bcrypt.compareSync(
@@ -43,10 +43,13 @@ exports.signin = (req, res) => {
       );
 
       if (!passwordIsValid) {
-        return res.status(401).send({
-          accessToken: null,
-          message: "Invalid Password!",
-        });
+        return res.status(401).send(
+          // {
+          // accessToken: null,
+          // message: 
+          "Contraseña invalida!"
+        // }
+        );
       }
 
       var token = jwt.sign({ id: cliente.id }, config.secret, {

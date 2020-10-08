@@ -1,14 +1,18 @@
 import Vue from 'vue'
 import Vuex from "vuex"
+import { auth } from "./auth.module";
 
 Vue.use(Vuex);
 
 export const store = new Vuex.Store({
+         modules: {
+           auth,
+         },
          state: {
            count: 0,
            cartProducts: [],
            total: 0,
-        },
+         },
          getters: {
            getCount: (state) => {
              return state.count;
@@ -75,7 +79,6 @@ export const store = new Vuex.Store({
                  );
                  state.count -= state.cartProducts[productIndex]["cantidad"];
                  state.cartProducts.splice(productIndex, 1);
-
                }
              }
            },
@@ -88,7 +91,7 @@ export const store = new Vuex.Store({
              context.commit("deleteProduct", payload);
            },
            deleteCompletely: (context, payload) => {
-               context.commit("deleteCompletely", payload);
-           }
+             context.commit("deleteCompletely", payload);
+           },
          },
        });
