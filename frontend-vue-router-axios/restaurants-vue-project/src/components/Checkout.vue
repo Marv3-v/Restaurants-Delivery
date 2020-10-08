@@ -33,14 +33,14 @@
             <div class="cardCheckout" v-if="!submitted">
                 <div class="">
                   <p style="font-size: 13px; opacity: .5">CLIENTE:</p>
-                  <p style="font-size: 12px">{{ currentUser.usuario }}</p>
+                  <p style="font-size: 12px">{{ currentUser.usuario }} - {{ direccion.clientes.nombre }}</p>
+                  <p style="font-size: 12px"><b>NIT: </b>{{direccion.clientes.nit }}</p>
+
                   <hr class="hreClass">
                 </div>
                   <p style="font-size: 13px;  opacity: .5">DIRECCIÓN DE ENVÍO:</p>
                 <div style="font-size: 12px">
-                  <p>Ricardo</p>
-                  <p>Barrio La Ceiba</p>
-                  <p>Calle Principal</p>
+                  <p>{{ direccion.nombre }} - {{ direccion.calle }} - {{ direccion.descripcion }}</p>
                 </div>
                   <hr class="hreClass">
                 <p style="font-size: 13px; opacity: .5">MÉTODO DE PAGO ÚNICO:</p>
@@ -59,7 +59,7 @@
           <div v-else>
             <div class="cardCheckout"> 
                 <div style="font-size: 12px">
-                  <p>Orden Realizada con Éxito:</p>
+                  <p>Orden Realizada con Éxito:)</p>
             </div>
           </div>
           </div>
@@ -71,6 +71,7 @@
 </template>
 <script>
 import PedidosDataService from "../services/PedidosDataService";
+import LocalidadesDataService from "../services/LocalidadesDataService";
 
 export default {
 name: 'Checkout',
@@ -80,6 +81,7 @@ name: 'Checkout',
      currentItem: null,
      total: null,
      subtotal: null,
+     direccion: null,
      detalles: { 
      },
      submitted: false
@@ -92,6 +94,16 @@ name: 'Checkout',
   },
    getCart() {
      this.carrito = this.$store.getters.getCartProducts;
+   },
+   getLocalidad() {
+     LocalidadesDataService.get(this.currentUser.id)
+        .then(response => {
+          this.direccion = response.data;
+          // console.log(response.data);
+        })
+        .catch(e => {
+          console.log(e);
+        });  
    },
   addOneMore(producto) {
       this.currentItem = { id: producto.id, nombre: producto.nombre, precio: producto.precio, image: producto.imagen_path};
@@ -127,7 +139,7 @@ name: 'Checkout',
   },
   makeDelivery() {
 
-    console.log(this.myOrder);
+    // console.log(this.myOrder);
 // 
     var data = { 
         "total": this.total, 
@@ -158,11 +170,12 @@ name: 'Checkout',
    if (!this.currentUser) {
       this.$router.push('/login');
    }
+   this.getLocalidad();
  },
  computed: {
     currentUser() {
       return this.$store.state.auth.user;
-    }
+    },
   },
 }
 </script>

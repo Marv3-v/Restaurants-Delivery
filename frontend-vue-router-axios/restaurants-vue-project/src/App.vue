@@ -3,7 +3,7 @@
     <header v-if="this.$store.state.auth.status.loggedIn == true" class="header">
             <a href="#" class="header__logo">RUEDAS</a>
             <a href="#" class="nav__social-icon"><i class='bx bx-search-alt' id="search-icon"></i></a>
-            <span  class="nav__social-icon"><i class='bx bx-cart-alt' id="cart-icon" ></i><span class='badge badge-warning shoping-span' ref="shopingSpan">{{ count }}</span>
+            <span class="nav__social-icon"><i @click="goToCarrito" style="cursor: pointer" class='bx bx-cart-alt' id="cart-icon"></i><span class='badge badge-warning shoping-span' ref="shopingSpan" >{{ count }}</span>
             </span>
             
             <i class='bx bx-menu header__toggle menu-icon' @click="showMenu" id="nav-toggle"
@@ -37,7 +37,7 @@
                            
                     <div class="nav__social" >
                         <a href="#" class="nav__social-icon"><i class='bx bx-search-alt' id="search-pc-icon"></i></a>
-                        <span class="nav__social-icon"><i class='bx bx-cart-alt' @click="getData" id="cart-pc-icon"></i><span class='badge badge-warning shoping-pc-span' id='lblCartCount' ref="lblCartCount">{{ count }}</span></span>
+                        <span class="nav__social-icon"><i class='bx bx-cart-alt' @click="goToCarrito" id="cart-pc-icon" style="cursor: pointer"></i><span class='badge badge-warning shoping-pc-span' id='lblCartCount' ref="lblCartCount">{{ count }}</span></span>
                         
                         <a href="#" class="nav__social-icon"><i class='bx bx-log-out' id="log-out-pc-icon" @click="logout"></i></a>
                     </div>
@@ -59,6 +59,9 @@ export default {
          }
     },
   methods: {
+        goToCarrito() {
+            this.$router.push("/carrito");
+        },
       /*SHOW MENU*/
         showMenu() {
           this.$refs.navMenu.classList.toggle('show')
