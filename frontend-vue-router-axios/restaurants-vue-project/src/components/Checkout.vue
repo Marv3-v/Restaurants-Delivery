@@ -29,8 +29,8 @@
             </div>     
           </article>
         </div>
-        <div v-else class="checkout">
-            <div class="cardCheckout">
+        <div v-else class="checkout" >
+            <div class="cardCheckout" v-if="!submitted">
                 <div class="">
                   <p style="font-size: 13px; opacity: .5">CLIENTE:</p>
                   <p style="font-size: 12px">{{ currentUser.usuario }}</p>
@@ -54,7 +54,14 @@
                   <p>Envio: Q.8.00</p>
                   <p>Total: Q.{{ total.toFixed(2) }}</p>
                 </div>
-          <span class="comprar" style="text-align: center">COMPRAR</span>
+          <span class="comprar" style="text-align: center" @click="makeDelivery">COMPRAR</span>
+          </div>
+          <div v-else>
+            <div class="cardCheckout"> 
+                <div style="font-size: 12px">
+                  <p>Orden Realizada con Éxito:</p>
+            </div>
+          </div>
           </div>
         </div>
         
@@ -63,6 +70,8 @@
 </div>
 </template>
 <script>
+import PedidosDataService from "../services/PedidosDataService";
+
 export default {
 name: 'Checkout',
  data() {
@@ -71,9 +80,16 @@ name: 'Checkout',
      currentItem: null,
      total: null,
      subtotal: null,
+     detalles: { 
+     },
+     submitted: false
    }
  },
  methods: {
+    newTutorial() {
+      this.submitted = false;
+      this.tutorial = {};
+  },
    getCart() {
      this.carrito = this.$store.getters.getCartProducts;
    },
@@ -108,6 +124,31 @@ name: 'Checkout',
   },
   getSubtotal() {
     this.subtotal = this.total - 8;
+  },
+  makeDelivery() {
+
+    console.log(this.myOrder);
+// 
+    var data = { 
+        "total": this.total, 
+        "clienteId": this.currentUser.id, 
+        "estadoId": 1, 
+        "metodoId": 1, 
+        "tarifa": 8, 
+        "detalles": this.$store.state.cartProducts
+    }
+
+    PedidosDataService.create(data)
+        .then(response => {
+          console.log(response.data);
+          this.submitted = true;
+          this.$store.state.count = 0;
+          this.$store.state.cartProducts = []
+        })
+        .catch(e => {
+          console.log(e);
+        });
+// 
   }
  }, 
  mounted() {
@@ -123,7 +164,5 @@ name: 'Checkout',
       return this.$store.state.auth.user;
     }
   },
-  
- 
 }
 </script>

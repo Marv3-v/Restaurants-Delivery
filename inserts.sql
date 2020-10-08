@@ -5,6 +5,8 @@ INSERT INTO estados VALUES(null, 1, CURDATE(), CURDATE());
 -- INACTIVO
 INSERT INTO estados VALUES(null, 0, CURDATE(), CURDATE());
 
+-- METODOS PAGO
+INSERT INTO metodos_pago VALUES(null, "Contra Entrega", CURDATE(), CURDATE());
 -- == RESTAURANTES ==
 
 -- ID, NOMBRE, IMAGEN_PATH, CREATED_AT, UPDATED_AT
@@ -75,7 +77,7 @@ INSERT INTO seccionmenus VALUES(null, "Complementos", "complementos.png", CURDAT
 
 -- DOMINOS
 --PRODUCTOS PIZZA
-    INSERT INTO productos VALUES(null, "Esp.5 Carnes", 120, 3, 6, "5carnes.png", CURDATE(), CURDATE());
+    INSERT INTO productos VALUES(null, "Esp 5 Carnes", 120, 3, 6, "carnes5.png", CURDATE(), CURDATE());
     INSERT INTO productos VALUES(null, "Hawaiana", 120, 3, 6, "hawaiana.png", CURDATE(), CURDATE());
     INSERT INTO productos VALUES(null, "P.Americana", 120, 3, 6, "pamericana.png", CURDATE(), CURDATE());
 
@@ -97,3 +99,30 @@ INSERT INTO seccionmenus VALUES(null, "Complementos", "complementos.png", CURDAT
     INSERT INTO productos VALUES(null, "Chessy Bread", 50, 3, 9, "chessy.png", CURDATE(), CURDATE());
 
 
+-- {
+--     "detalles": [
+--       {
+--         "productoId": 1,
+--         "cantidad": 3,
+--         "precio": 100,
+--         "estadoId": 1,
+--         "subtotal": 300
+--       },
+--     ],
+--     "total": 300,
+--     "clienteId": 1,
+--     "estadoId": 1,
+--     "metodoId": 1,
+--     "tarifa": 1
+-- }
+
+-- {
+--     "nombre": "Marvin Alarcón",
+--     "usuario": "marv3",
+--     "password":"1234",
+--     "nit": "9399393",
+--     "telefono":"39392",
+--     "localidad": "Vista H",
+--     "calle": "2da Ave.",
+--     "descripcion": "0 95 Zona 2"
+-- }

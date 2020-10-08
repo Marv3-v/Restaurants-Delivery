@@ -24,7 +24,7 @@ export const store = new Vuex.Store({
          mutations: {
            newProduct(state, payload) {
              let producto = payload;
-             producto = { ...producto, cantidad: 1 };
+             producto = { ...producto, cantidad: 1, subtotal: payload.precio, productoId: payload.id, estadoId: 1 };
              if (state.cartProducts.length > 0) {
                let bool = state.cartProducts.some((i) => i.id == producto.id);
                if (bool) {
@@ -32,16 +32,19 @@ export const store = new Vuex.Store({
                    (el) => el.id === producto.id
                  );
                  state.cartProducts[productoIndex]["cantidad"] += 1;
-                 localStorage.setItem(
-                   "Carrito",
-                   JSON.stringify(state.cartProducts)
-                 );
+                //  
+                 state.cartProducts[productoIndex]["subtotal"] = state.cartProducts[productoIndex]["cantidad"] * state.cartProducts[productoIndex]["precio"];
+                //  
+                //  localStorage.setItem(
+                //    "Carrito",
+                //    JSON.stringify(state.cartProducts)
+                //  );
                } else {
                  state.cartProducts.push(producto);
-                 localStorage.setItem(
-                   "Carrito",
-                   JSON.stringify(state.cartProducts)
-                 );
+                //  localStorage.setItem(
+                //    "Carrito",
+                //    JSON.stringify(state.cartProducts)
+                //  );
                }
              } else {
                state.cartProducts.push(producto);
@@ -66,6 +69,7 @@ export const store = new Vuex.Store({
                  if (state.cartProducts[productIndex]["cantidad"] !== 1) {
                    state.cartProducts[productIndex]["cantidad"] -= 1;
                    state.count--;
+                    state.cartProducts[productIndex]["subtotal"] = state.cartProducts[productIndex]["cantidad"] * state.cartProducts[productIndex]["precio"];
                  }
                }
              }

@@ -233,6 +233,9 @@ img {
   color: var(--first-color);
 }
 
+.hreClass {
+  border-top: .1px; opacity: .2;
+}
 /* Footer */
 #footer {
   position: absolute;
@@ -318,9 +321,7 @@ img {
     color: var(--white-color);
   }
 
-.hreClass {
-  border-top: .1px; opacity: .2;
-}
+
 
   /* None display icons while this resolution PC */
 #search-icon, #cart-icon, .shoping-span, .svg-mobile,  #log-out-icon, #menu-icon, #nav-close, #nav-toggle{

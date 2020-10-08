@@ -106,7 +106,7 @@ CREATE TABLE productos_pedidos(
     cantidad INT,
     precio_unitario DECIMAL(9,2),
     estadoId INT,
-    subtota; DECIMAL(9,2),
+    subtotal DECIMAL(9,2),
     createdAt TIMESTAMP,
     updatedAt TIMESTAMP,
     PRIMARY KEY (id),
