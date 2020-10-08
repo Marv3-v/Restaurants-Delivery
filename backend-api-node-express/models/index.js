@@ -16,6 +16,7 @@ db.sequelize = sequelize;
 db.restaurantes = require("./restaurante.model.js")(sequelize, Sequelize);
 db.seccionmenus = require("./seccionmenus.model.js")(sequelize, Sequelize);
 db.productos = require("./productos.model")(sequelize, Sequelize);
+db.clientes = require("./clientes.model")(sequelize, Sequelize);
 // Relaciones
 // Un restaurante tiene varias secciones/platillos
 db.restaurantes.hasMany(db.seccionmenus, { as: "seccionmenus"});

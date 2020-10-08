@@ -34,6 +34,8 @@ db.sequelize.sync();
 
 require("./routes/restaurante.routes")(app); 
 require("./routes/seccionmenu.routes")(app); 
+require("./routes/auth.routes")(app); 
+require("./routes/cliente.routes")(app); 
 // Puerto
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {
