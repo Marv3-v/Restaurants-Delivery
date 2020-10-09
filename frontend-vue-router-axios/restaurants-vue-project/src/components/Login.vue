@@ -28,7 +28,7 @@
                             </div>
                             <div style="display: flex; justify-content: space-between">
                                 <button style="cursor: pointer" @click="signup">Registrarse</button>
-                                <button style="cursor: pointer" :disabled="loading" >Entrar</button>
+                                <button style="cursor: pointer" :disabled="loading">Entrar</button>
                             </div>
                              <div class="form-group" style="text-align:center;">
                                 <div v-if="message" style="font-size: 12px;" role="alert">{{message}}</div>
