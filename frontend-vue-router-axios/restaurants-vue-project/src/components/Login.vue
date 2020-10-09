@@ -1,7 +1,7 @@
 <template>
      <main id="main" class="main art-grid">
                 <div style="text-align: center; color: #F7567C; top: 10%">
-                    <b style="font-size: 20px">RUEDAS</b>, somos una app de entrega adomicilio para los Restaurantes de comida rápida más importantes de la Región. ¡LLEVAMOS TU COMIDA AL DÍA!
+                    <b style="font-size: 20px">RUEDAS</b>, somos una app de entrega a domicilio para los restaurantes de comida rápida más importantes de la región.
                 </div>
                 <div class='card-login'>
                     RUEDAS
